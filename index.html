@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ARYA DWI ANINDITTA — Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+
+    const hobbyButtons =
+        document.querySelectorAll(".hobby-button");
+    
+    const hobbyPage =
+        document.getElementById("hobby-page");
+    
+    const hobbyTitle =
+        document.getElementById("hobby-title");
+    
+    const hobbyDescription =
+        document.getElementById("hobby-description");
+    
+    const hobbyGallery =
+        document.getElementById("hobby-gallery");
+    
+    const backButton =
+        document.getElementById("back-button");
+    
+    
+    const hobbyData = {
+    
+        renang: {
+    
+            title: "MY SWIMMING",
+    
+            description:
+                "Koleksi foto kegiatan renang saya.",
+    
+            photos: [
+                "renang1.jpeg",
+                "renang2.jpeg",
+                "renang3.jpeg",
+                "renang4.jpeg"
+            ]
+    
+        },
+    
+        running: {
+    
+            title: "MY RUNNING",
+    
+            description:
+                "Koleksi foto kegiatan running saya.",
+    
+            photos: [
+                "running1.jpeg",
+                "running2.jpeg",
+                "running3.jpeg"
+            ]
+    
+        },
+    
+        basket: {
+    
+            title: "MY BASKETBALL",
+    
+            description:
+                "Koleksi foto kegiatan basket saya.",
+    
+            photos: [
+                "basket1.jpeg",
+                "basket2.jpeg",
+                "basket3.jpeg"
+            ]
+    
+        },
+    
+        gambar: {
+    
+            title: "MY DRAWING",
+    
+            description:
+                "Koleksi hasil gambar dan karya saya.",
+    
+            photos: [
+                "gambar1.jpeg",
+                "gambar2.jpeg",
+                "gambar3.jpeg"
+            ]
+    
+        }
+    
+    };
+    
+    
+    hobbyButtons.forEach(button => {
+    
+        button.addEventListener("click", () => {
+    
+            const page =
+                button.dataset.page;
+    
+            const data =
+                hobbyData[page];
+    
+            if (!data) return;
+    
+    
+            hobbyTitle.innerHTML =
+                data.title.replace(
+                    " ",
+                    " <span>"
+                ) + "</span>";
+    
+    
+            hobbyDescription.textContent =
+                data.description;
+    
+    
+            hobbyGallery.innerHTML = "";
+    
+    
+            data.photos.forEach(
+                (photo, index) => {
+    
+                    const item =
+                        document.createElement("div");
+    
+                    item.className =
+                        "gallery-item";
+    
+    
+                    item.innerHTML = `
+    
+                        <img
+                            src="${photo}"
+                            alt="${data.title} foto ${index + 1}"
+                        >
+    
+                        <div class="gallery-number">
+                            ${String(index + 1).padStart(2, "0")}
+                        </div>
+    
+                    `;
+    
+    
+                    hobbyGallery.appendChild(item);
+    
+                }
+            );
+    
+    
+            hobbyPage.classList.add("active");
+    
+            hobbyPage.scrollIntoView({
+                behavior: "smooth"
+            });
+    
+        });
+    
+    });
+    
+    
+    backButton.addEventListener(
+        "click",
+        () => {
+    
+            hobbyPage.classList.remove(
+                "active"
+            );
+    
+            document
+                .querySelector("#about")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+    
+        }
+    );
+    
+    </script>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            ARYA<span>/</span>PORTFOLIO
+        </div>
+
+        <div class="nav-links">
+            <a href="#about">Tentang</a>
+            <a href="#education">Pendidikan</a>
+            <a href="#experience">Pengalaman</a>
+            <a href="#project">Projek</a>
+            <a href="#contact">kontak</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <p class="kicker">
+                WELCOME TO MY PORTFOLIO
+            </p>
+
+            <h1>
+                ARYA DWI
+                <br>
+                <span>ANINDITTA.</span>
+            </h1>
+
+            <p class="hero-description">
+                Mahasiswa S1 Teknik Informatika yang tertarik pada
+                teknologi, desain visual, editing foto, dan pengembangan
+                project kreatif. Saya suka mengubah ide menjadi sesuatu
+                yang nyata, fungsional, dan menarik.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#project" class="btn">
+                    LIHAT PROJECT
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    HUBUNGI SAYA
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-photo">
+
+            <div class="photo-background"></div>
+
+            <img src="arya dengan gaya.jpeg" alt="Arya Dwi Aninditta">
+            
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2 class="section-title">
+            WHO <span>AM I?</span>
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>Profile</h3>
+
+                <p>
+                    Saya Arya Dwi Aninditta, mahasiswa S1 Teknik
+                    Informatika Universitas Dian Nuswantoro.
+                    Saya memiliki pengalaman di bidang photo booth
+                    dan editing foto, serta pernah mengembangkan
+                    project IoT berbasis Arduino.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Interest</h3>
+
+                <p>
+                    Teknologi, fotografi & editing, IoT, olahraga,
+                    menggambar, dan eksplorasi ide kreatif.
+                    Saya senang belajar hal baru dan bekerja dalam tim.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <h2 class="section-title">
+            EDU<span>CATION</span>
+        </h2>
+
+        <div class="timeline">
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    SEKARANG
+                </div>
+
+                <div>
+                    <h3>
+                        Universitas Dian Nuswantoro
+                    </h3>
+
+                    <p>
+                        S1 Teknik Informatika
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    SMK
+                </div>
+
+                <div>
+
+                    <h3>
+                        SMK Negeri 2 Demak
+                    </h3>
+
+                    <p>
+                        Aktif dalam Paskibra, Basket,
+                        dan mengikuti PKL di PrimaKomputer.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    SMP
+                </div>
+
+                <div>
+
+                    <h3>
+                        SMP Negeri 1 Karangtengah
+                    </h3>
+
+                    <p>
+                        Anggota OSIS.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-card">
+
+                <div class="year">
+                    SD
+                </div>
+
+                <div>
+
+                    <h3>
+                        SDN Tambakroto
+                    </h3>
+
+                    <p>
+                        Pendidikan dasar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+
+        <h2 class="section-title">
+            EXPERIENCE <span>& SKILLS</span>
+        </h2>
+
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>
+                    Photo Booth & Photo Editing
+                </h3>
+
+                <p>
+                    Pernah bekerja di bidang photo booth
+                    dan editing foto, dengan fokus pada
+                    hasil visual yang rapi dan menarik.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    PKL — PrimaKomputer
+                </h3>
+
+                <p>
+                    Pengalaman praktik kerja lapangan
+                    di PrimaKomputer dan belajar mengenai
+                    lingkungan kerja serta praktik
+                    di bidang teknologi.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card skills-card">
+
+            <h3>
+                Skills
+            </h3>
+
+            <div class="skills">
+
+                <span class="skill">
+                    PHOTO EDITING
+                </span>
+
+                <span class="skill">
+                    PHOTOGRAPHY
+                </span>
+
+                <span class="skill">
+                    ARDUINO / IoT
+                </span>
+
+                <span class="skill">
+                    CREATIVE THINKING
+                </span>
+
+                <span class="skill">
+                    TEAMWORK
+                </span>
+
+                <span class="skill">
+                    PROBLEM SOLVING
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECT -->
+    <section id="project">
+
+        <h2 class="section-title">
+            MY <span>PROJECT</span>
+        </h2>
+
+
+        <div class="project">
+
+            <div class="project-visual">
+
+                <strong>
+                    IoT
+                </strong>
+
+            </div>
+
+
+            <div class="project-info">
+
+                <h3>
+                    Automatic Parking System
+                </h3>
+
+                <p>
+                    Project IoT berbasis Arduino untuk membuat
+                    sistem parkir otomatis.
+
+                    Project ini menjadi salah satu pengalaman
+                    dalam menggabungkan pemrograman, perangkat
+                    keras, sensor, dan konsep otomasi.
+                </p>
+
+
+                <div class="skills">
+
+                    <span class="skill">
+                        ARDUINO
+                    </span>
+
+                    <span class="skill">
+                        IoT
+                    </span>
+
+                    <span class="skill">
+                        AUTOMATION
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENT -->
+    <section>
+
+        <h2 class="section-title">
+            ACHIEVE<span>MENTS</span>
+        </h2>
+
+
+        <div class="card">
+
+            <h3>
+                Juara Karawitan / Gamelan
+            </h3>
+
+            <p>
+                Meraih prestasi juara pada tingkat
+                Kabupaten/Kota dalam bidang
+                karawitan gamelan.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOBBIES -->
+    <section id="hobbies">
+        <h2 class="section-title">MY <span>HOBBIES</span></h2>
+    
+        <div class="skills">
+            <button class="skill hobby-button" data-page="renang">
+                🏊 RENANG
+            </button>
+    
+            <button class="skill hobby-button" data-page="running">
+                🏃 RUNNING
+            </button>
+    
+            <button class="skill hobby-button" data-page="basket">
+                🏀 BASKET
+            </button>
+    
+            <button class="skill hobby-button" data-page="gambar">
+                ✏️ GAMBAR
+            </button>
+        </div>
+    </section>
+    <!-- ================================
+     HOBBY PAGES
+================================ -->
+
+<section id="hobby-page" class="hobby-page">
+
+    <button id="back-button" class="back-button">
+        ← KEMBALI
+    </button>
+
+    <h2 id="hobby-title" class="section-title">
+        MY <span>HOBBY</span>
+    </h2>
+
+    <p id="hobby-description" class="hobby-description">
+        Koleksi foto kegiatan saya.
+    </p>
+
+
+    <div id="hobby-gallery" class="gallery">
+
+        <!-- FOTO AKAN MUNCUL DI SINI -->
+
+    </div>
+
+</section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+
+        <h2>
+            LET'S <span>CONNECT.</span>
+        </h2>
+
+
+        <div class="contact-list">
+
+            <div class="contact-item">
+                📱 0896-2776-9974
+            </div>
+
+            <div class="contact-item">
+                ✉️ anindittaarya@gmail.com
+            </div>
+
+            <a
+                class="contact-item"
+                href="https://www.instagram.com/chilboyy_a/"
+                target="_blank"
+            >
+                ◎ @chilboyy_a
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        ARYA DWI ANINDITTA · PORTFOLIO · 2026
+
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
